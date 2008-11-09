@@ -1,0 +1,2 @@
+include README LICENSE AUTHORS CHANGES reploc/templates/* reploc/media/*
+recursive-include reploc *.py
