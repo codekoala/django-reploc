@@ -142,6 +142,10 @@ function findLocationsInRadius() {
             // Bail out if there was a problem on the server
             if (!point) { alert('Please enter a valid address'); ajax.fadeOut(); return; }
 
+            if (centerMarker) {
+                map.removeOverlay(centerMarker);
+            }
+
             centerMarker = createMarker(point, 10000, {address : refAdd.val()});
             map.addOverlay(centerMarker);
             doDrawCircle();
