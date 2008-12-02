@@ -7,6 +7,7 @@
   * Automatic latitude/longitude determination for locations.  If there's a problem determining the coordinates to the address, you can enter them manually.
   * Locations can have "attributes."  This is a way of specifying, for example, which locations carry which lines of your products.
   * You can decide whether you want to use JavaScript or Python to do the heavy lifting.
+  * Users can search for locations within a radius of an address they specify.
   * Offer your users driving directions to various representative locations.
 
 ==Requirements==
