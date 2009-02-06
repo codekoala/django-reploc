@@ -1,3 +1,9 @@
+0.1.0-pre3
+
+- added the templates to the distribution files
+- added a simple base.html that no one should ever need....
+- added a sample project so you can see what is required
+
 0.1.0-pre2
 
 - Fixed some JavaScript errors.  Some of the markers weren't being removed from

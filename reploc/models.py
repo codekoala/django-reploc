@@ -59,7 +59,7 @@ class Location(models.Model):
 
     # TODO: see if it's worth linking this to a table
     state = models.CharField('State/Province', max_length=50, blank=True)
-    postal_code = models.CharField(max_length=20)
+    postal_code = models.CharField(max_length=20, blank=True)
 
     # TODO: see if it's worth linking this to a table
     country = models.CharField(max_length=30, default='USA')
