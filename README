@@ -108,6 +108,8 @@ urlpatterns = patterns('',
 )
 }}}
 
+Finally, you'll probably want to copy the media files that I use in `django-reploc`, unless you have some of your own.  Those files can be found in the `/media/` directory of the project.  There are really only two files that you should need to copy to your media directory: `reploc/media/js/jquery-1.3.1.min.js` and `reploc/media/img/ajax.gif` (see http://code.google.com/p/django-reploc/source/browse/#svn/trunk/reploc/media for the specific files).  Alternatively, you may just override the templates to use whatever you want.  I make no guarantees that the application will still work if you do that though ;)
+
 ==Usage==
 
 As soon as you have all of the configuration taken care of, simply fire up your site (or restart it) and jump into the Django administration interface.  You can add locations straight from the "Add Representative" page if you'd like.  When you're done, head on over to http://www.yourwebsite.com/locator/ (or whatever it happens to be in your case) to see the application in action.
