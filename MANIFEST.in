@@ -1,3 +1,3 @@
-include README LICENSE AUTHORS CHANGES reploc/templates/* reploc/media/*
-recursive-include reploc *.py *.js *.html *.gif
-recursive-include sample *
+include README README.rst LICENSE AUTHORS CHANGES
+recursive-include reploc *.*
+recursive-exclude reploc *.pyc .*.swp

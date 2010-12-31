@@ -4,7 +4,7 @@ from datetime import datetime
 
 class RepresentativeManager(models.Manager):
     def active(self):
-        return self.get_query_set().filter(is_active=True)
+        return self.filter(is_active=True)
 
 class Representative(models.Model):
     """
@@ -44,7 +44,7 @@ class Attribute(models.Model):
 
 class LocationManager(models.Manager):
     def active(self):
-        return self.get_query_set().filter(representative__is_active=True)
+        return self.filter(representative__is_active=True)
 
 class Location(models.Model):
     """

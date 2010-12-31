@@ -1,7 +1,6 @@
 from django.db.models.signals import post_save
 from django.conf import settings
 from reploc.models import Location
-from decimal import Decimal
 from datetime import datetime, timedelta
 from geopy import geocoders
 
@@ -34,6 +33,11 @@ def update_coordinates(sender, instance, created, *args, **kwargs):
     """
 
     now = datetime.now()
+
+    # bail out if there has been an error getting the coordinates; avoids
+    # infinite recursion
+    if instance.coordinate_error:
+        return
 
     # if the last check was within the last 5 minutes, skip the coord update
     # since we call the instance.save() method in this function, we would be

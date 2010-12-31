@@ -1,11 +1,10 @@
+from math import *
+
 from django.shortcuts import render_to_response
 from django.http import Http404
-from django.utils.simplejson.encoder import JSONEncoder
-from django.conf import settings
-from reploc.models import Representative, Location, Attribute
+from django.utils.simplejson import JSONEncoder
+from reploc.models import Location
 from reploc import utils
-from geopy import geocoders
-from math import *
 
 def get_locations(request):
     """
@@ -89,6 +88,15 @@ def jsonify_location(l):
     the latitude and longitude fields because they are Decimal objects, and
     the JSONEncoder does not like them.
     """
+
+    lat = l.latitude
+    if lat:
+        lat = float(lat)
+
+    lng = l.longitude
+    if lng:
+        lng = float(lng)
+
     return {
             'representative': l.representative.name,
             'street1': l.street1,
@@ -100,6 +108,6 @@ def jsonify_location(l):
             'fax': l.fax,
             'website': l.website,
             'email': l.email,
-            'lat': float(l.latitude),
-            'lng': float(l.longitude)
+            'lat': lat,
+            'lng': lng
         }
