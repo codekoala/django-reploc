@@ -20,6 +20,7 @@ $(document).ready(function () {
     btnFind = $('#find-locations');
     btnReset = $('#reset-locations');
     locMatch = $('#location-matches');
+    csrf_token = $('[name=csrfmiddlewaretoken]');
 
     // for some reason, pulling this back with jQuery doesn't work with the API
     directionsPanel = document.getElementById("location-directions");
@@ -184,7 +185,8 @@ function findLocationsInRadius() {
     $.ajax({
         url : '{% url reploc-find-locations %}',
         type : 'POST',
-        data : {'address': refAdd.val(),
+        data : {'csrfmiddlewaretoken': csrf_token.val(),
+                'address': refAdd.val(),
                 'radius' : refRad.val()},
         dataType : 'json',
         error : function (xhr, status, err) {
