@@ -14,28 +14,28 @@
 <h2>Representative Locator</h2>
 
 <p>Please enter an address in the box below and choose a radius to search within.</p>
+<form action="." method="post">
+    {% csrf_token %}
+    <label for="reference-address">Address: </label>
+    <input type="text" id="reference-address" />
 
-<label for="reference-address">Address: </label>
-<input type="text" id="reference-address" />
+    <label for="reference-radius">Radius: </label>
+    <!-- TODO: work with KM //-->
+    <select id="reference-radius">
+        <option value="5">5 miles</option>
+        <option value="10">10 miles</option>
+        <option value="25">25 miles</option>
+        <option value="50">50 miles</option>
+        <option value="100">100 miles</option>
+        <option value="250">250 miles</option>
+        <option value="500">500 miles</option>
+        <option value="1000">1000 miles</option>
+    </select>
 
-<label for="reference-radius">Radius: </label>
-<!-- TODO: work with KM //-->
-<select id="reference-radius">
-    <option value="5">5 miles</option>
-    <option value="10">10 miles</option>
-    <option value="25">25 miles</option>
-    <option value="50">50 miles</option>
-    <option value="100">100 miles</option>
-    <option value="250">250 miles</option>
-    <option value="500">500 miles</option>
-    <option value="1000">1000 miles</option>
-</select>
-
-<input type="button" value="Find Representatives" id="find-locations" />
-<input type="button" value="Reset Map" id="reset-locations" />
-
-<img src="/static/img/ajax.gif" height="25" width="25" alt="Loading..." id="ajax-progress" style="float:right; margin-top: -30px;"/>
-
+    <input type="button" value="Find Representatives" id="find-locations" />
+    <input type="button" value="Reset Map" id="reset-locations" />
+    <img src="/static/img/ajax.gif" height="25" width="25" alt="Loading..." id="ajax-progress" style="float:right; margin-top: -30px;"/>
+</form>
 <div id="location-matches"></div>
 <div style="clear:both"></div>
 

@@ -3,9 +3,13 @@ from math import *
 from django.shortcuts import render_to_response
 from django.http import Http404
 from django.utils.simplejson import JSONEncoder
+from django.views.decorators.csrf import csrf_exempt
+
 from reploc.models import Location
 from reploc import utils
 
+
+@csrf_exempt
 def get_locations(request):
     """
     Retrieves all locations for all active representatives and returns the
@@ -20,6 +24,7 @@ def get_locations(request):
     return render_to_response('reploc/json.js',
                               {'json': json.encode(data)},
                               mimetype='text/javascript')
+
 
 def find_locations_in_radius(request):
     """
@@ -36,7 +41,7 @@ def find_locations_in_radius(request):
 
     # snag some needed info from the request
     address = request.POST.get('address', '')
-    radius = float(request.POST.get('radius', 25));
+    radius = float(request.POST.get('radius', 25))
 
     try:
         # TODO: figure out how to make this better when more than one result
@@ -69,7 +74,8 @@ def find_locations_in_radius(request):
 
         # check the distance between the center and the location
         # source: http://www.meridianworlddata.com/Distance-Calculation.asp
-        dist = 3963.189 * acos(sin(lat1 / C) * sin(lat2 / C) + cos(lat1 / C) * cos(lat2 / C) * cos(lng2 / C - lng1 / C))
+        dist = 3963.189 * acos(sin(lat1 / C) * sin(lat2 / C) + cos(lat1 / C) \
+                * cos(lat2 / C) * cos(lng2 / C - lng1 / C))
 
         # if the location is within the radius of the input address, add it to
         # our collection
@@ -80,6 +86,7 @@ def find_locations_in_radius(request):
     return render_to_response('reploc/json.js',
                               {'json': json.encode(data)},
                               mimetype='text/javascript')
+
 
 def jsonify_location(l):
     """

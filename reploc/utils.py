@@ -7,7 +7,8 @@ from geopy import geocoders
 
 def get_coordinates(location=None, address=None):
     if not location and not address:
-        raise ValueError('You must specify either a Location object or a string address!')
+        raise ValueError('You must specify either a Location \
+                object or a string address!')
     elif location:
         addy = location.string_address
     elif address:
@@ -20,9 +21,10 @@ def get_coordinates(location=None, address=None):
 
     # retrieve the coordinates from Google Maps
     results = g.geocode(addy, exactly_one=False)
-    place, coord = results.next()
+    place, coord = results[0]
 
     return coord
+
 
 def update_coordinates(sender, instance, created, *args, **kwargs):
     """
