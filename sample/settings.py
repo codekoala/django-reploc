@@ -54,9 +54,8 @@ SECRET_KEY = 'r0@^1n&%mk%$!y9e$+couk_7&vr%#_!v-$b*&^ekdsa6_ruk$-'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.load_template_source',
-    'django.template.loaders.app_directories.load_template_source',
-#     'django.template.loaders.eggs.load_template_source',
+    "django.template.loaders.filesystem.Loader",
+    "django.template.loaders.app_directories.Loader",
 )
 
 MIDDLEWARE_CLASSES = (
@@ -66,7 +65,7 @@ MIDDLEWARE_CLASSES = (
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.core.context_processors.auth',
+    'django.contrib.auth.context_processors.auth',
     'django.core.context_processors.i18n',
     'django.core.context_processors.media',
     'django.core.context_processors.debug',
@@ -88,4 +87,4 @@ INSTALLED_APPS = (
     'reploc'
 )
 
-GOOGLE_MAPS_KEY = 'sdfsafasfdasfdasdf'
+GOOGLE_MAPS_KEY = ''
