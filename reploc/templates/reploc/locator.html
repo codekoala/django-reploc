@@ -3,7 +3,7 @@
 {% block title %}Representative Locator{% endblock %}
 
 {% block extra_head %}
-<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key={{ GOOGLE_MAPS_KEY }}" type="text/javascript"></script>
+<script src="http://maps.google.com/maps?file=api&amp;v=3&amp;key={{ GOOGLE_MAPS_KEY }}&amp;sensor=TRUE" type="text/javascript"></script>
 <script type="text/javascript">
 {# this is a template because it uses some Django tags #}
 {% include 'reploc/locator.js' %}
@@ -34,7 +34,7 @@
 
     <input type="button" value="Find Representatives" id="find-locations" />
     <input type="button" value="Reset Map" id="reset-locations" />
-    <img src="/static/img/ajax.gif" height="25" width="25" alt="Loading..." id="ajax-progress" style="float:right; margin-top: -30px;"/>
+    <img src="{{ STATIC_URL }}img/ajax.gif" height="25" width="25" alt="Loading..." id="ajax-progress" style="float:right; margin-top: -30px;"/>
 </form>
 <div id="location-matches"></div>
 <div style="clear:both"></div>
