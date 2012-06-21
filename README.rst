@@ -67,7 +67,7 @@ Clone From Source Control
 You can get the latest copy of the source code from any of the these official
 repositories::
 
-    git clone http://github.com/kenbolton/django-reploc.git
+    git clone http://github.com/codekoala/django-reploc.git
 
 Verifying Installation
 ----------------------
