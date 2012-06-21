@@ -264,7 +264,7 @@ $(document).ready(function () {
         map.setZoom(4);
         map.panTo(centerMarker.getPosition());
         locMatch.slideUp('slow', function () { $(this).html(''); });
-        circle.setMap(null)
+        circle.setMap(null);
         for (var m = 0; m < markers.length; m++) {
             var mkr = markers[m];
             if (mkr.getVisible()) { mkr.setMap(map); }
@@ -357,6 +357,7 @@ $(document).ready(function () {
             directions.route(request, function(response, status) {
                 if (status == google.maps.DirectionsStatus.OK) {
                     directionsRenderer.setDirections(response);
+                    circle.setMap(null);
                 } else {
                     alert('Error: ' + status);
                 };
