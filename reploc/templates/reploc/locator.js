@@ -324,7 +324,6 @@ $(document).ready(function () {
                 content: blurbs[num],
                 maps: map
             })
-            //map.openInfoWindowHtml(marker.getPosition(), blurbs[num]);
             map.panTo(marker.getPosition());
 
             // keep the chosen match highlighted
