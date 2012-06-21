@@ -50,6 +50,7 @@ $(document).ready(function () {
     if(navigator.geolocation) {
         browserSupportFlag = true;
         navigator.geolocation.getCurrentPosition(function(position) {
+            refAdd.val(position.coords.latitude + ', ' + position.coords.longitude);
             myOptions.center = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
             map.setCenter(myOptions.center);
             map.setZoom(myOptions.zoom);
